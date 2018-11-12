@@ -4,20 +4,22 @@ namespace App\Calculator;
 
 final class NetGrossCalculator
 {
-    public function calculateNetSalary(int $grossSalary, int $months)
+    public function calculateNetSalary(int $grossSalary, int $months): NetGrossCalculatorResult
     {
         $annualGrossSalary = $months * $grossSalary;
 
         $taxedAnnualGrossSalary = $annualGrossSalary - (($annualGrossSalary * 7.8) / 100) - 132;
 
-        $tax = $this->calculateTax($taxedAnnualGrossSalary);
+        $taxes = $this->calculateTaxes($taxedAnnualGrossSalary);
 
         $socialInsurances = ($annualGrossSalary * 0.078 >= 4.243) ? 4.243 : ($annualGrossSalary * 0.078);
 
-        $annualNetSalary = $annualGrossSalary - $tax - $socialInsurances;
+        $annualNetSalary = $annualGrossSalary - $taxes - $socialInsurances;
+        
+        return new NetGrossCalculatorResult($annualGrossSalary, $annualNetSalary, $socialInsurances, $taxes);
     }
 
-    private function calculateTax(int $annualGrossSalary): float
+    private function calculateTaxes(int $annualGrossSalary): float
     {
         if ($annualGrossSalary <= 19500) {
             return 0;

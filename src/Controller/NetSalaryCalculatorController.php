@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class NetSalaryCalculatorController extends AbstractController
 {
     /**
-     * @Route("calculator", name="net_salary_calculator")
+     * @Route("/", name="net_salary_calculator")
      * @param NetGrossCalculator $calculator
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -30,7 +30,7 @@ final class NetSalaryCalculatorController extends AbstractController
 
         /** @var NetSalary $data */
         $data = $form->getData();
-        $calculator->calculateNetSalary($data->grossSalary, $data->months);
+        $result = $calculator->calculateNetSalary($data->grossSalary, $data->months);
 
         return $this->render('net_salary_calculator/index.html.twig', [
             'form' => $form->createView(),
