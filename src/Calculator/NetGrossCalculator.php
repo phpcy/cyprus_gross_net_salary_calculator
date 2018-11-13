@@ -12,11 +12,11 @@ final class NetGrossCalculator
 
         $taxes = $this->calculateTaxes($taxedAnnualGrossSalary);
 
-        $socialInsurances = ($annualGrossSalary * 0.078 >= 4.243) ? 4.243 : ($annualGrossSalary * 0.078);
+        $socialInsurances = (($annualGrossSalary * 0.078) >= 4243) ? 4243 : ($annualGrossSalary * 0.078);
 
         $annualNetSalary = $annualGrossSalary - $taxes - $socialInsurances;
         
-        return new NetGrossCalculatorResult($annualGrossSalary, $annualNetSalary, $socialInsurances, $taxes);
+        return new NetGrossCalculatorResult($annualGrossSalary, $annualNetSalary, $socialInsurances, $taxes, $months);
     }
 
     private function calculateTaxes(int $annualGrossSalary): float

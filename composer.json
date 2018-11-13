@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
@@ -12,7 +12,6 @@
         "symfony/form": "4.1.*",
         "symfony/framework-bundle": "4.1.*",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/process": "4.1.*",
         "symfony/security-bundle": "4.1.*",
         "symfony/serializer-pack": "*",
         "symfony/translation": "4.1.*",

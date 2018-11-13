@@ -24,12 +24,23 @@ final class NetGrossCalculatorResult
      */
     private $taxes;
 
-    public function __construct(int $annualGrossSalary, float $annualNetSalary, float $socialInsurances, float $taxes)
-    {
+    /**
+     * @var int
+     */
+    private $months;
+
+    public function __construct(
+        int $annualGrossSalary,
+        float $annualNetSalary,
+        float $socialInsurances,
+        float $taxes,
+        int $months
+    ) {
         $this->annualGrossSalary = $annualGrossSalary;
         $this->annualNetSalary = $annualNetSalary;
         $this->socialInsurances = $socialInsurances;
         $this->taxes = $taxes;
+        $this->months = $months;
     }
 
     /**
@@ -62,5 +73,13 @@ final class NetGrossCalculatorResult
     public function getTaxes(): float
     {
         return $this->taxes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMonths(): int
+    {
+        return $this->months;
     }
 }

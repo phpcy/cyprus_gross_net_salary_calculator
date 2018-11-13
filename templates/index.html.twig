@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Net/Gross salary calculator</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <style>
+            .dl-horizontal dt {
+                width: 200px;
+            }
+
+            .dl-horizontal dd {
+                margin-left: 220px;
+            }
+        </style>
+        <div class="container">
+            <div class="page-header">
+                <h1>Gross/Net Calculator</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form(form) }}
+                </div>
+                <div class="col-sm-6">
+                    {% if result is defined %}
+                        <dl class="dl-horizontal">
+                            <dt>Annual Gross Salary</dt>
+                            <dd>{{ result.annualGrossSalary }}</dd>
+
+                            <dt>Annual Net Salary</dt>
+                            <dd>{{ result.annualNetSalary }}</dd>
+
+                            <dt>Annual Taxes</dt>
+                            <dd>{{ result.taxes }}</dd>
+                            <dt>Annual Social Insurance</dt>
+                            <dd>{{ result.socialInsurances }}</dd>
+
+                            <dt>Monthly Salary</dt>
+                            <dd>{{ (result.annualNetSalary / result.months) | round(2) }}</dd>
+                        </dl>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

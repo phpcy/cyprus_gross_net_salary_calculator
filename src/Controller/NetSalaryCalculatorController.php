@@ -18,12 +18,12 @@ final class NetSalaryCalculatorController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(NetGrossCalculator $calculator, Request $request): Response
+    public function __invoke(NetGrossCalculator $calculator, Request $request): Response
     {
         $form = $this->createForm(NetSalaryType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() === false || $form->isValid() === false) {
-            return $this->render('net_salary_calculator/index.html.twig', [
+            return $this->render('index.html.twig', [
                 'form' => $form->createView(),
             ]);
         }
@@ -32,8 +32,9 @@ final class NetSalaryCalculatorController extends AbstractController
         $data = $form->getData();
         $result = $calculator->calculateNetSalary($data->grossSalary, $data->months);
 
-        return $this->render('net_salary_calculator/index.html.twig', [
+        return $this->render('index.html.twig', [
             'form' => $form->createView(),
+            'result' => $result,
         ]);
     }
 }
