@@ -9,3 +9,7 @@
 
 ### phpunit/phpunit ###
 /phpunit.xml
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
