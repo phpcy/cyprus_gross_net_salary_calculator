@@ -1,6 +1,7 @@
 # Gross/Net Salary calculator
 
 [![Software License][ico-license]](LICENSE.md)
+[![Build Status](https://travis-ci.org/phpcy/cyprus_gross_net_salary_calculator.svg?branch=master)](https://travis-ci.org/phpcy/cyprus_gross_net_salary_calculator)
 
 An application to calculate your Net Salary from your Gross Salary.
 
@@ -39,7 +40,6 @@ The application is not hosted somewhere. I would be happy if someone is offered 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [link-contributors]: ../../contributors
