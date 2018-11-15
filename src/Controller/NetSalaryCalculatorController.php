@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Calculator\NetGrossCalculator;
 use App\Form\NetSalary;
 use App\Form\NetSalaryType;
+use Phpcy\GrossNetSalaryCalculator\Calculator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,11 +16,11 @@ final class NetSalaryCalculatorController extends AbstractController
 {
     /**
      * @Route("/", name="net_salary_calculator")
-     * @param NetGrossCalculator $calculator
+     * @param Calculator $calculator
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke(NetGrossCalculator $calculator, Request $request): Response
+    public function __invoke(Calculator $calculator, Request $request): Response
     {
         $form = $this->createForm(NetSalaryType::class);
         $form->handleRequest($request);
