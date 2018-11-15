@@ -7,5 +7,7 @@
     <arg value="s" />
 
     <!-- Use the PSR2 Standard-->
-    <rule ref="PSR2" />
+    <rule ref="PSR2" >
+        <exclude-pattern>*/Kernel.php</exclude-pattern>
+    </rule>
 </ruleset>
